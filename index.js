@@ -1,17 +1,11 @@
 const { exec } = require('child_process');
-const os = require('os');
 
-  // Define the command to run HLS downloader with the specified user-agent and port
-  const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
-  const port = 3000;
-  const hlsdCommand = `hlsd --user-agent "${userAgent}" --port ${port}`;
+const command = 'hlsd --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" --port 3000';
 
-  // Execute the HLS downloader command
-  exec(hlsdCommand, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error executing HLS downloader command: ${error}`);
-      return;
-    }
-    console.log(`HLS downloader is running on port ${port}`);
-  });
+exec(command, (error, stdout, stderr) => {
+  if (error) {
+    console.error(`Command execution failed: ${error}`);
+    return;
+  }
+  console.log(`Output: ${stdout}`);
 });
