@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: static website
+    env: node
+    buildCommand: npm install --global "@warren-bank/hls-proxy"
+    startCommand: npm start
